@@ -24,7 +24,7 @@ public class SimpleCalcGUI extends JFrame{
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
                     String op = cbOperations.getSelectedItem().toString();
 
                     double num1 = Double.parseDouble(tfNumber1.getText());
@@ -49,7 +49,9 @@ public class SimpleCalcGUI extends JFrame{
                             break;
                     }
 
-
+                }catch (NumberFormatException f) {
+                    JOptionPane.showMessageDialog(pnlMain, "Input must be a number. PLease try again.");
+                }
             }
         });
     }
