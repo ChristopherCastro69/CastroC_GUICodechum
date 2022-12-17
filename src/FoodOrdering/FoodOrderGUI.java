@@ -1,6 +1,7 @@
 package FoodOrdering;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodOrderGUI extends JFrame{
@@ -30,4 +31,25 @@ public class FoodOrderGUI extends JFrame{
         app.setVisible(true);
     }
 
+    public FoodOrderGUI() {
+        menu = new ArrayList<>();
+        discounts = new ArrayList<>();
+        menu.add(cFries);
+        menu.add(cTea);
+        menu.add(cSundae);
+        menu.add(cSoftDrinks);
+        menu.add(cPizza);
+        menu.add(cBurger);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(rbNone);
+        group.add(rb5);
+        group.add(rb10);
+        group.add(rb15);
+
+        discounts.add(rbNone);
+        discounts.add(rb5);
+        discounts.add(rb10);
+        discounts.add(rb15);
+    }
 }
