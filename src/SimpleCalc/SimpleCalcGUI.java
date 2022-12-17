@@ -1,11 +1,13 @@
 package SimpleCalc;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SimpleCalcGUI extends JFrame{
     private JPanel pnlMain;
     private JTextField tfNumber1;
-    private JComboBox comboBox1;
+    private JComboBox cbOperations;
     private JButton btnCompute;
     private JTextField tfNumber2;
     private JTextField lblResult;
@@ -17,6 +19,39 @@ public class SimpleCalcGUI extends JFrame{
         app.setSize(700, 400);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setVisible(true);
+    }
+    public SimpleCalcGUI() {
+        btnCompute.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                    String op = cbOperations.getSelectedItem().toString();
+
+                    double num1 = Double.parseDouble(tfNumber1.getText());
+                    double num2 = Double.parseDouble(tfNumber2.getText());
+                    double result;
+                    switch (op) {
+                        case "-":
+                            result = num1 - num2;
+                            lblResult.setText(String.format("%.2f", result));
+                            break;
+                        case "+":
+                            result = num1 + num2;
+                            lblResult.setText(String.format("%.2f", result));
+                            break;
+                        case "*":
+                            result = num1 * num2;
+                            lblResult.setText(String.format("%.2f", result));
+                            break;
+                        case "/":
+                            result = num1 / num2;
+                            lblResult.setText(String.format("%.2f", result));
+                            break;
+                    }
+
+
+            }
+        });
     }
 }
 
