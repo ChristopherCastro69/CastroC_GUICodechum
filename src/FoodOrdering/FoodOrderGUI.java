@@ -34,6 +34,14 @@ public class FoodOrderGUI extends JFrame{
     }
 
     public FoodOrderGUI() {
+//        try{
+//            if(total() == 0){
+//                throw new IllegalArgumentException("Please choose something from the list.");
+//            }
+//        }  catch (IllegalArgumentException e) {
+//            JOptionPane.showMessageDialog(pnlMain, e.getMessage());
+//        }
+
         menu = new ArrayList<>();
         discounts = new ArrayList<>();
         menu.add(cFries);
@@ -56,14 +64,18 @@ public class FoodOrderGUI extends JFrame{
 
 
         btnOrder.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, String.format("Price is = %.02f", total()), "Message", 1);
+                JOptionPane.showMessageDialog(pnlMain, String.format("Price is = %.02f", total()), "Message", 1);
             }
         });
     }
+
+    double price;
     public double total() {
-        double price = 0;
+        try {
+            price = 0;
         for (JCheckBox cb : menu) {
             if (cb.isSelected()) {
                 String food = cb.getText();
@@ -110,6 +122,14 @@ public class FoodOrderGUI extends JFrame{
                         break;
                 }
             }
+        }
+        if(price == 0){
+            throw new IllegalArgumentException("Please select something from the list.");
+        }
+
+
+    } catch (Exception e) {
+            JOptionPane.showMessageDialog(pnlMain, e.getMessage());
         }
         return price;
     }
