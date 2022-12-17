@@ -1,6 +1,9 @@
 package LeapYear;
 
 import javax.swing.*;
+//Sorry for the duplicate file sir,
+// I did not commit my progress because I was in an island traveling with my tita
+// and there was no consistent signal and I did not know how important it was in the grading ;((
 
 public class LeapYearGUI extends JFrame{
     private JPanel pnlMain;
